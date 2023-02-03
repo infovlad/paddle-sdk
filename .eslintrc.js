@@ -14,4 +14,7 @@ module.exports = {
 		'prefer-const': ['error'],
 		semi: ['error', 'always'],
 	},
+	'parserOptions': {
+		'sourceType': 'module',
+	},
 };
