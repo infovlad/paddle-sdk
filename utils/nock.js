@@ -1,4 +1,4 @@
-const nock = require('nock');
+import nock from 'nock';
 
 const SERVER = 'http://test.paddle.com';
 
@@ -10,5 +10,6 @@ function getNock() {
 	});
 }
 
-module.exports = getNock;
-module.exports.SERVER = SERVER;
+export default getNock;
+const _SERVER = SERVER;
+export { _SERVER as SERVER };

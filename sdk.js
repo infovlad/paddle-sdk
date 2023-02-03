@@ -1,8 +1,8 @@
-const crypto = require('crypto');
-const got = require('got');
+import * as crypto from 'crypto';
+import got from 'got';
 
-const pkg = require('./package.json');
-const serialize = require('./lib/serialize');
+import packageInfo from './package.json';
+import serialize from './lib/serialize';
 
 const VENDOR_SANDBOX_URL = 'https://sandbox-vendors.paddle.com/api/2.0';
 const VENDOR_SERVER_URL = 'https://vendors.paddle.com/api/2.0';
@@ -128,7 +128,7 @@ class PaddleSDK {
 	_getDefaultHeaders(additionalHeaders) {
 		return Object.assign(
 			{
-				'User-Agent': `paddle-sdk/${pkg.version} (${pkg.repository.url})`,
+				'User-Agent': `paddle-sdk/${packageInfo.version} (${packageInfo.repository.url})`,
 			},
 			additionalHeaders || {}
 		);
@@ -604,4 +604,4 @@ class PaddleSDK {
 	}
 }
 
-module.exports = PaddleSDK;
+export default PaddleSDK;
