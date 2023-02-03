@@ -1,7 +1,7 @@
 import * as crypto from 'crypto';
 import got from 'got';
 
-import { version, repository } from './package.json';
+import packageInfo from './package.json';
 import serialize from './lib/serialize';
 
 const VENDOR_SANDBOX_URL = 'https://sandbox-vendors.paddle.com/api/2.0';
@@ -128,7 +128,7 @@ class PaddleSDK {
 	_getDefaultHeaders(additionalHeaders) {
 		return Object.assign(
 			{
-				'User-Agent': `paddle-sdk/${version} (${repository.url})`,
+				'User-Agent': `paddle-sdk/${packageInfo.version} (${packageInfo.repository.url})`,
 			},
 			additionalHeaders || {}
 		);
