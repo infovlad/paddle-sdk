@@ -1,4 +1,4 @@
-import { createVerify } from 'crypto';
+import * as crypto from 'crypto';
 import got from 'got';
 
 import { version, repository } from './package.json';
@@ -365,7 +365,7 @@ class PaddleSDK {
 		const serialized = serialize(sorted);
 
 		try {
-			const verifier = createVerify('sha1');
+			const verifier = crypto.createVerify('sha1');
 			verifier.write(serialized);
 			verifier.end();
 
